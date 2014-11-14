@@ -1,5 +1,6 @@
 walk(document.body);
 
+
 function walk(node) 
 {
 	// I stole this function from here:
@@ -11,6 +12,7 @@ function walk(node)
 	{
 		case 1:  // Element
 		case 9:  // Document
+			
 		case 11: // Document fragment
 			child = node.firstChild;
 			while ( child ) 
@@ -22,9 +24,7 @@ function walk(node)
 			break;
 
 		case 3: // Text node
-            if(node.parentElement.tagName.toLowerCase() != "script") {
-                handleText(node);
-            }
+			handleText(node);
 			break;
 	}
 }
@@ -35,7 +35,10 @@ function handleText(textNode) {
 	var v = textNode.nodeValue;
 
 	//Replaces 2 - infinity with "mad", like it should be.
-	v = v.replace(/^\d{2,}$|^[2-9]$/g, "mad");
+
+	v = v.replace(/^\d{2,}$|^[2-9]$/, "mad");
+
+	// v = v.replace(/^\d{2,}(.+)$/, "mad$1");
 
 	//Replace things like #.# or #.#.#  or #.#.#.#, etc., with "mad"
 	v = v.replace(/^[2-9]\./g, "mad.");
@@ -44,9 +47,9 @@ function handleText(textNode) {
 
 	v = v.replace(/\.\d+$/g, ".mad");
 
-v = v.replace(/^[2-9],/g, "mad,");
+	v = v.replace(/^[2-9],/g, "mad,");
 
-		v = v.replace(/,\d+,/g, ",mad,");
+	v = v.replace(/,\d+,/g, ",mad,");
 
 	v = v.replace(/,\d+$/g, ",mad");
 
