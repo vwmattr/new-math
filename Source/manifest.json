@@ -3,6 +3,9 @@
 	"name": "New Math",
 	"version": "1.0",
 	"description": "Simplifies your world with the new math.  There are three numbers. 0, 1, and mad.",
+	"icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
 	"content_scripts": 
 	[
 		{
