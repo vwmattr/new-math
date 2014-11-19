@@ -35,29 +35,8 @@ function handleText(textNode) {
 	var v = textNode.nodeValue;
 
 	//Replaces 2 - infinity with "mad", like it should be.
-
-	v = v.replace(/^\d{2,}$|^[2-9]$/, "mad");
-
-	// v = v.replace(/^\d{2,}(.+)$/, "mad$1");
-
-	//Replace things like #.# or #.#.#  or #.#.#.#, etc., with "mad"
-	v = v.replace(/^[2-9]\./g, "mad.");
-
-	v = v.replace(/\.\d+\./g, ".mad.");
-
-	v = v.replace(/\.\d+$/g, ".mad");
-
-	v = v.replace(/^[2-9],/g, "mad,");
-
-	v = v.replace(/,\d+,/g, ",mad,");
-
-	v = v.replace(/,\d+$/g, ",mad");
-
-	v = v.replace(/^\$\d{2,}/g, "$mad");
-	v = v.replace(/^\$[2-9]/g, "$mad");
-	v = v.replace(/^\$[2-9]\.$/g, "$mad.");
-
-		v = v.replace(/,\d+\./g, ",mad.");
+	v = v.replace(/\d{2,}/g, "mad");
+	v = v.replace(/[2-9]/g, "mad");
 
 	textNode.nodeValue = v;
 }
